@@ -1,0 +1,68 @@
+name: healthlog
+description: A health log
+repository: https://github.com/ToBeHH/healthlog
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations: # I18N
+    sdk: flutter
+  encrypt: ^5.0.1
+  flutter_colorpicker: ^1.0.3
+  flutter_html_to_pdf: ^0.7.0
+  # health: ^3.4.4
+  html_editor_enhanced: ^2.5.1
+  path_provider: ^2.0.15
+  share_plus:  ^6.3.4
+  shared_preferences: ^2.1.1
+  sqflite: ^2.2.8+4
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.5
+
+dependency_overrides:
+  file_picker: '5.2.9'
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.1
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# see https://plugins.jetbrains.com/plugin/13666-flutter-intl
+# arb file format: https://localizely.com/flutter-arb/
+flutter_intl:
+  enabled: true
+  class_name: S
+
+# The following section is specific to Flutter.
+flutter:
+  generate: true
+  uses-material-design: true
+  assets:
+    - assets/

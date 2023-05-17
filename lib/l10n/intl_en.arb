@@ -1,0 +1,147 @@
+{
+  "@@locale": "en",
+  "title": "Health log",
+  "@title": {
+    "description": "Title of the app"
+  },
+  "journalTitle": "Journal",
+  "@journalTitle": {
+    "description": "Title for the journal scaffold"
+  },
+  "journalEmptyList": "No entries in the journal yet.",
+  "@journalEmptyList": {
+    "description": "Empty list state for the journal"
+  },
+  "journalEmptyListAdd1": "Press",
+  "@journalEmptyListAdd1": {
+    "description": "First part of addition empty state help"
+  },
+  "journalEmptyListAdd2": "to create your first journal entry.",
+  "@journalEmptyListAdd2": {
+    "description": "Second part of addition empty state help"
+  },
+  "journalEmptyListNoTags": "No entries in the journal for the selected tags.",
+  "@journalEmptyListNoTags": {
+    "description": "Empty list state for the journal, if there are some tags selected"
+  },
+  "journalEmptyListNoTagsButton": "Select tags",
+  "@journalEmptyListNoTagsButton": {
+    "description": "Button on the empty list state for the journal, if there are some tags selected"
+  },
+  "journalDateFormat": "MMMM dd, yyyy",
+  "@journalDateFormat": {
+    "description": "Date format used in list view"
+  },
+  "journalAddTitle": "Add a new journal entry",
+  "@journalAddTitle": {
+    "description": "Title of the dialog to add a new entry"
+  },
+  "journalEditTitle": "Edit a journal entry",
+  "@journalEditTitle": {
+    "description": "Title of the dialog to edit a new entry"
+  },
+  "journalInputHint": "How was your day today?",
+  "@journalInputHint": {
+    "description": "Hint for the input dialog for the journal"
+  },
+  "journalAdd": "Add",
+  "@journalAdd": {
+    "description": "Button to add a new journal from the dialog"
+  },
+  "journalEdit": "Update",
+  "@journalEdit": {
+    "description": "Button to edit a new journal from the dialog"
+  },
+  "journalCancel": "Cancel",
+  "@journalCancel": {
+    "description": "Button to cancel adding / editing a journal from the dialog"
+  },
+  "journalTagsTitle": "Tags",
+  "@journalTagsTitle": {
+    "description": "Title for the tags chooser dialog"
+  },
+  "journalAddTag": "Add new tag",
+  "@journalAddTag": {
+    "description": "Text button to add a new tag"
+  },
+  "journalAddTagsConfirmButton": "Ok",
+  "@journalAddTagsConfirmButton": {
+    "description": "Button to dismiss the dialog to choose the tags for a journal entry"
+  },
+  "journalTagsNewTitle": "Add new tag",
+  "@journalTagsNewTitle": {
+    "description": "Title of the dialog to add a new tag"
+  },
+  "journalTagsEditTitle": "Edit tag",
+  "@journalTagsEditTitle": {
+    "description": "Title of the dialog to edit an existing tag"
+  },
+  "journalTagsNewColor": "Color:",
+  "@journalTagsNewColor": {
+    "description": "Color label of the dialog to add a new tag"
+  },
+  "journalTagsNewInput": "New tag",
+  "@journalTagsNewInput": {
+    "description": "Placeholder text for adding a new tag"
+  },
+  "journalTagsEditInput": "Tag",
+  "@journalTagsEditInput": {
+    "description": "Placeholder text for editing an existing tag"
+  },
+  "journalTagsNewConfirmButton": "Save",
+  "@journalTagsNewConfirmButton": {
+    "description": "Button to store the new tag"
+  },
+  "journalTagsEditConfirmButton": "Save",
+  "@journalTagsEditConfirmButton": {
+    "description": "Button to store the edited tag"
+  },
+  "journalConfirmDeleteTitle": "Really delete?",
+  "@journalConfirmDeleteTitle": {
+    "description": "Title of the confirmation dialog to delete a message"
+  },
+  "journalConfirmDeleteBody": "Are you sure you want to delete this journal entry?",
+  "@journalConfirmDeleteBody": {
+    "description": "Body of the confirmation dialog to delete a message"
+  },
+  "journalConfirmButton": "Yes, delete",
+  "@journalConfirmButton": {
+    "description": "Button to really delete a journal entry"
+  },
+  "journalConfirmTagDeleteTitle": "Really delete?",
+  "@journalConfirmTagDeleteTitle": {
+    "description": "Title of the dialog to delete a tag"
+  },
+  "journalConfirmTagDeleteBody": "Do you really want to delete the tag \"{tagname}\"? {count,plural,=0{} one{It is used once!} other{It is used {count} times!}}",
+  "@journalConfirmTagDeleteBody": {
+    "description": "Body of the dialog, if tag should be deleted - if the tag is in use.",
+    "placeholders": {
+      "tagname": {},
+      "count": {}
+    }
+  },
+  "journalDefaultTagGreen": "Insight",
+  "@journalDefaultTagGreen": {
+    "description": "Default tag name for the green color"
+  },
+  "journalDefaultTagBlue": "Learned",
+  "@journalDefaultTagBlue": {
+    "description": "Default tag name for the blue color"
+  },
+  "journalDefaultTagOrange": "Important",
+  "@journalDefaultTagOrange": {
+    "description": "Default tag name for the orange color"
+  },
+  "journalDefaultTagRed": "⚠ Very important",
+  "@journalDefaultTagRed": {
+    "description": "Default tag name for the red color"
+  },
+  "journalDefaultTagLightBlue": "Insight extended",
+  "@journalDefaultTagLightBlue": {
+    "description": "Default tag name for the light blue color"
+  },
+  "journalDefaultTagTeal": "Exercise",
+  "@journalDefaultTagTeal": {
+    "description": "Default tag name for the cyan color"
+  }
+}
