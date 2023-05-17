@@ -1,17 +1,16 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../colors.dart';
 import '../generated/l10n.dart';
 import '../helpers/database_helper.dart';
 import '../helpers/string_helpers.dart';
 import '../helpers/widget_helpers.dart';
 import '../models/journal_model.dart';
 import '../models/tags_model.dart';
-import '../colors.dart';
 
 class Journal extends StatefulWidget {
   const Journal({Key? key}) : super(key: key);
@@ -29,6 +28,7 @@ class _JournalState extends State<Journal> {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   late List<TagModel> _tags;
   late List<int> _selectedTags;
+  OverlayEntry? overlayEntry;
 
   @override
   void initState() {
@@ -86,7 +86,8 @@ class _JournalState extends State<Journal> {
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(20.0))),
                               child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(8, 3, 8, 3),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(8, 3, 8, 3),
                                   child: Text(
                                     e.name,
                                     style: TextStyle(
@@ -122,7 +123,7 @@ class _JournalState extends State<Journal> {
                   );
                 }
 
-                final int? itemCount =
+                final int itemCount =
                     (snapshot.data as List<JournalModel>).length;
 
                 List<Widget> actions = [];
@@ -176,12 +177,30 @@ class _JournalState extends State<Journal> {
   }
 
   Widget emptyJournal(BuildContext context) {
+    overlayEntry?.remove();
+    overlayEntry = OverlayEntry(builder: (context) {
+      // Align is used to position the highlight overlay
+      // relative to the NavigationBar destination.
+      return SafeArea(
+          child: Align(
+        alignment: Alignment.bottomRight,
+        child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 80, 80),
+            child: Image.asset('assets/hand.png',
+                width: MediaQuery.of(context).size.width / 2)),
+      ));
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Overlay.of(context, debugRequiredFor: widget).insert(overlayEntry!);
+    });
+
     return Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
           Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
               child: Text(
                 S.of(context).journalEmptyList,
                 textAlign: TextAlign.center,
@@ -194,14 +213,14 @@ class _JournalState extends State<Journal> {
               text: TextSpan(children: [
                 TextSpan(
                     text: S.of(context).journalEmptyListAdd1,
-                    style: const TextStyle(color: Colors.black)),
-                const WidgetSpan(
+                    style: TextStyle(color: Colors.black)),
+                WidgetSpan(
                     child: Icon(
                   Icons.post_add,
                 )),
                 TextSpan(
                     text: S.of(context).journalEmptyListAdd2,
-                    style: const TextStyle(color: Colors.black))
+                    style: TextStyle(color: Colors.black))
               ]))
         ]));
   }
@@ -219,8 +238,9 @@ class _JournalState extends State<Journal> {
                 softWrap: true,
               )),
           const SizedBox(height: 10),
-          WidgetHelper.fancyButton(S.of(context).journalEmptyListNoTagsButton,
-              C.primaryColor, () async {
+          WidgetHelper.fancyButton(
+              S.of(context).journalEmptyListNoTagsButton, C.primaryColor,
+              () async {
             await _chooseTagsDialog(context);
             setState(() {
               _items = DatabaseHelper.instance
@@ -256,7 +276,7 @@ class _JournalState extends State<Journal> {
                                       context: context,
                                       builder: (BuildContext context) {
                                         return AlertDialog(
-                                              titlePadding:
+                                          titlePadding:
                                               const EdgeInsets.all(0.0),
                                           contentPadding:
                                               const EdgeInsets.all(0.0),
@@ -280,14 +300,11 @@ class _JournalState extends State<Journal> {
                                               pickerAreaHeightPercent: 0.7,
                                               enableAlpha: false,
                                               displayThumbColor: true,
-                                              showLabel: true,
                                               paletteType: PaletteType.hsv,
                                               pickerAreaBorderRadius:
                                                   const BorderRadius.only(
-                                                topLeft:
-                                                    Radius.circular(2.0),
-                                                topRight:
-                                                    Radius.circular(2.0),
+                                                topLeft: Radius.circular(2.0),
+                                                topRight: Radius.circular(2.0),
                                               ),
                                             ),
                                           ),
@@ -469,7 +486,8 @@ class _JournalEditState extends State<JournalEdit> {
                               },
                               title: Row(children: [
                                 Padding(
-                                    padding: const EdgeInsets.fromLTRB(0, 0, 6, 0),
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 0, 6, 0),
                                     child: Container(
                                       width: 12.0,
                                       height: 12.0,
@@ -650,13 +668,11 @@ class _AddEditTagDialogState extends State<_AddEditTagDialog> {
                                           pickerAreaHeightPercent: 0.7,
                                           enableAlpha: false,
                                           displayThumbColor: true,
-                                          showLabel: true,
                                           paletteType: PaletteType.hsv,
                                           pickerAreaBorderRadius:
                                               const BorderRadius.only(
                                             topLeft: Radius.circular(2.0),
-                                            topRight:
-                                            Radius.circular(2.0),
+                                            topRight: Radius.circular(2.0),
                                           ),
                                         ),
                                       ),
